@@ -1,0 +1,27 @@
+name: Change Image
+on:
+  schedule:
+    - cron: "0 0 * * *"
+jobs:
+  change-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Install and Change Image
+        run: |
+          npm install
+          node index.js > README.md
+        env:
+          GITHUB_UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+
+      - name: Commit and Push Changes
+        run: |
+          git add README.md
+          git commit -m "Updated image in README.md"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
