@@ -20,7 +20,7 @@ const unsplash = createApi({
 
   const readmeContent =
     "`Today's random Image:`\n" +
-    "<div>\n<br>\n<br>\n" +
+    "<div>\n<br>\n" +
     `<img height="300" src="${imageUrl}" alt="Random Image from Unsplash API.">\n` +
     "<br>\n<br>\n</div>\n\n" +
     `Photo by <a href="${authorHtmlUrl}" target="_blank_" rel="noreferrer noopener">${authorName}</a> ` +
