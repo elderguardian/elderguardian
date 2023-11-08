@@ -8,7 +8,7 @@ const unsplash = createApi({
 
 (async () => {
   const photo = await unsplash.photos.getRandom({});
-  console.log(photo)
+
   if (photo.type !== "success") {
     throw new Error("Could not get a random Photo.");
   }
